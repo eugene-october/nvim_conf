@@ -33,6 +33,13 @@ return {
                 Lua = {
                     diagnostics = {
                         globals = { "vim" }
+                    },
+                    format = {
+                        defaultConfig = {
+                            indent_style = "tab",
+                            indent_size = "4",
+                            tab_width = "4"
+                        }
                     }
                 }
             }

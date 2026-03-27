@@ -1,5 +1,14 @@
 -- Tabsize 4
-vim.opt.tabstop = 4        -- a TAB character covers 4 spaces visually
-vim.opt.shiftwidth = 4     -- Indentation amount used for autoindent, >>, <<, etc
-vim.opt.expandtab = true   -- Insert spaces when <Tab> is pressed (uses shiftwidth)
-vim.opt.softtabstop = 4    -- Number of spaces <Tab> and <BS> count for in Insert mode
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.softtabstop = 4
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "lua",
+	callback = function()
+		vim.opt_local.expandtab = false
+		vim.opt_local.tabstop = 4
+		vim.opt_local.shiftwidth = 4
+	end,
+})

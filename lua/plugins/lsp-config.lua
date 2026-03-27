@@ -28,6 +28,16 @@ return {
 			severity_sort = true,
 		})
 
+        vim.lsp.config("lua_ls", {
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { "vim" }
+                    }
+                }
+            }
+        })
+
 		vim.keymap.set("n", "<leader>.", vim.diagnostic.open_float, { desc = "Show diagnostic error messages" })
 		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
 		vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
@@ -45,5 +55,7 @@ return {
 		})
 
 		vim.lsp.enable("csharp_ls")
+		vim.lsp.enable("lua_ls")
+
 	end,
 }

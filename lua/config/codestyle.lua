@@ -4,6 +4,10 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
 
+-- Display line numbers
+vim.opt.number = true
+vim.opt.relativenumber = true
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "lua",
 	callback = function()

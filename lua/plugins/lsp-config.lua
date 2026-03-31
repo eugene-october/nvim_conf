@@ -9,7 +9,6 @@ local function setup_lsp_keymaps(bufnr)
 	vim.keymap.set("n", "gT", function() builtin.lsp_type_definitions({ jump_type = "tab" }) end, vim.tbl_extend("force", opts, { desc = "Go to type definition" }))
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, vim.tbl_extend("force", opts, { desc = "Hover documentation" }))
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename symbol" }))
-	vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code actions" }))
 	vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, vim.tbl_extend("force", opts, { desc = "Document symbols" }))
 	vim.keymap.set("n", "<leader>ws", builtin.lsp_workspace_symbols, vim.tbl_extend("force", opts, { desc = "Workspace symbols" }))
 

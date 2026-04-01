@@ -167,10 +167,10 @@ return {
 		vim.keymap.set("n", "<leader>rN", "<cmd>Lspsaga rename ++project<CR>", vim.tbl_extend("force", opts, { desc = "Rename symbol in project" }))
 
 		-- Definition/Declaration peek
-		vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", vim.tbl_extend("force", opts, { desc = "Peek definition" }))
-		vim.keymap.set("n", "gD", "<cmd>Lspsaga goto_definition<CR>", vim.tbl_extend("force", opts, { desc = "Go to definition" }))
-		vim.keymap.set("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>", vim.tbl_extend("force", opts, { desc = "Peek type definition" }))
-		vim.keymap.set("n", "gT", "<cmd>Lspsaga goto_type_definition<CR>", vim.tbl_extend("force", opts, { desc = "Go to type definition" }))
+		vim.keymap.set("n", "<leader>gd", "<cmd>Lspsaga peek_definition<CR>", vim.tbl_extend("force", opts, { desc = "Peek definition" }))
+		vim.keymap.set("n", "<leader>gD", "<cmd>Lspsaga goto_definition<CR>", vim.tbl_extend("force", opts, { desc = "Go to definition" }))
+		vim.keymap.set("n", "<leader>gt", "<cmd>Lspsaga peek_type_definition<CR>", vim.tbl_extend("force", opts, { desc = "Peek type definition" }))
+		vim.keymap.set("n", "<leader>gT", "<cmd>Lspsaga goto_type_definition<CR>", vim.tbl_extend("force", opts, { desc = "Go to type definition" }))
 
 		-- Diagnostics
 		vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", vim.tbl_extend("force", opts, { desc = "Show line diagnostics" }))

@@ -32,5 +32,13 @@ return {
 		})
 
 		vim.keymap.set("n", "<leader>e", api.tree.toggle, { desc = "Toggle file tree" })
+
+		vim.api.nvim_create_autocmd("BufEnter", {
+			callback = function()
+				if api.tree.is_visible() then
+					api.tree.find_file({ buf = 0 })
+				end
+			end,
+		})
 	end,
 }

@@ -8,10 +8,5 @@ return {
 				"github:Crashdummyy/mason-registry",
 			},
 		})
-
-		local mr = require("mason-registry")
-		if not mr.is_installed("stylua") then
-			mr.install("stylua")
-		end
 	end,
 }

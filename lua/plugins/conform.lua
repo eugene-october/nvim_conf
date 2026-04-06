@@ -15,6 +15,22 @@ return {
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
+			cs = function(bufnr)
+				local csharpier_config_files = {
+					".csharpierrc",
+					".csharpierrc.json",
+					".csharpierrc.yaml",
+					".config/dotnet-tools.json",
+				}
+
+				local csharpier_config = require("conform.util").root_file(csharpier_config_files)(bufnr)
+
+				if csharpier_config then
+					return { "csharpier", lsp_format = "never" }
+				else
+					return { lsp_format = "fallback" }
+				end
+			end,
 		},
 		default_format_opts = {
 			lsp_format = "fallback",

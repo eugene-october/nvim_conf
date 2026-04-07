@@ -9,7 +9,9 @@ return {
 			ensure_installed = {
 				"lua_ls",
 			},
-			automatic_installation = true,
+			automatic_installation = {
+				exclude = { "csharp_ls" },
+			},
 		})
 	end,
 }

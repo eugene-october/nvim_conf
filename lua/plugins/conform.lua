@@ -1,6 +1,6 @@
 return {
 	"stevearc/conform.nvim",
-	event = { "BufWritePre" },
+	event = { "BufWritePre", "BufWritePost" },
 	cmd = { "ConformInfo" },
 	keys = {
 		{
@@ -23,7 +23,9 @@ return {
 					".config/dotnet-tools.json",
 				}
 
-				local csharpier_config = require("conform.util").root_file(csharpier_config_files)(bufnr)
+				local bufname = vim.api.nvim_buf_get_name(bufnr)
+				local dirname = vim.fn.fnamemodify(bufname, ":h")
+				local csharpier_config = vim.fs.root(dirname, csharpier_config_files)
 
 				if csharpier_config then
 					return { "csharpier", lsp_format = "never" }
@@ -36,7 +38,7 @@ return {
 			lsp_format = "fallback",
 		},
 		format_on_save = {
-			timeout_ms = 500,
+			timeout_ms = 3000,
 			lsp_format = "fallback",
 		},
 	},
@@ -44,4 +46,3 @@ return {
 		vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 	end,
 }
-

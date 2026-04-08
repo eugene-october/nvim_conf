@@ -16,3 +16,10 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.shiftwidth = 4
 	end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function()
+		vim.cmd([[%s/\s\+$//e]])
+	end,
+})
